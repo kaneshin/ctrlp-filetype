@@ -20,7 +20,7 @@ else
 endif
 
 function! ctrlp#filetype#init()
-  let ftdir = expand('$RUNTIMEVIM/syntax')
+  let ftdir = expand('$VIMRUNTIME/syntax')
   let candidate = map(split(globpath(ftdir,'*.vim'), "\n"), 'fnamemodify(v:val,":t:r")')
   return candidate
 endfunc
