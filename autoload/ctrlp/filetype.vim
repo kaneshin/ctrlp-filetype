@@ -20,25 +20,9 @@ else
 endif
 
 function! ctrlp#filetype#init()
-  return [
-        \'c',
-        \'cpp',
-        \'css',
-        \'go',
-        \'html',
-        \'java',
-        \'javascript',
-        \'markdown',
-        \'perl',
-        \'php',
-        \'python',
-        \'ruby',
-        \'rust',
-        \'sh',
-        \'tex',
-        \'vim',
-        \'zsh',
-        \]
+  let ftdir = expand('$RUNTIMEVIM/syntax')
+  let candidate = map(split(globpath(ftdir,'*.vim'), "\n"), 'fnamemodify(v:val,":t:r")')
+  return candidate
 endfunc
 
 function! ctrlp#filetype#accept(mode, str)
