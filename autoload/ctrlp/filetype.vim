@@ -21,7 +21,8 @@ endif
 
 function! ctrlp#filetype#init()
   let ftdir = expand('$VIMRUNTIME/syntax')
-  let candidate = map(split(globpath(ftdir,'*.vim'), "\n"), 'fnamemodify(v:val,":t:r")')
+  let candidate = g:ctrlp_filetype.user
+  let candidate += map(split(globpath(ftdir,'*.vim'), "\n"), 'fnamemodify(v:val,":t:r")')
   return candidate
 endfunc
 
