@@ -22,9 +22,8 @@ endif
 
 function! ctrlp#filetype#init()
   let ftdir = expand('$VIMRUNTIME/syntax')
-  let candidate = g:ctrlp_filetype.user
-  let candidate += map(split(globpath(ftdir,'*.vim'), "\n"), 'fnamemodify(v:val,":t:r")')
-  return candidate
+  let s:candidate += map(split(globpath(ftdir, '*.vim'), "\n"), 'fnamemodify(v:val,":t:r")')
+  return s:candidate
 endfunc
 
 function! ctrlp#filetype#accept(mode, str)
@@ -32,7 +31,14 @@ function! ctrlp#filetype#accept(mode, str)
   let &ft=a:str
 endfunction
 
+function! ctrlp#filetype#enter()
+  let s:candidate = copy(get(get(g:, 'ctrlp_filetype', []), 'user', []))
+endfunction
+
 function! ctrlp#filetype#exit()
+  if exists('s:candidate')
+    unlet! s:candidate
+  endif
 endfunction
 
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
