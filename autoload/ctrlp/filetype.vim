@@ -7,9 +7,10 @@ let s:filetype_var = {
 \  'init':   'ctrlp#filetype#init()',
 \  'accept': 'ctrlp#filetype#accept',
 \  'lname':  'filetype',
-\  'sname':  'filetype',
-\  'exit':   'ctrlp#filetype#exit()',
+\  'sname':  'ft',
 \  'type':   'line',
+\  'enter':  'ctrlp#filetype#enter()',
+\  'exit':   'ctrlp#filetype#exit()',
 \  'sort':   0,
 \}
 
