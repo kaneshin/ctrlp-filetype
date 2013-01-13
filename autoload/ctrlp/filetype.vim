@@ -9,7 +9,7 @@ let s:filetype_var = {
 \  'lname':  'filetype',
 \  'sname':  'filetype',
 \  'exit':   'ctrlp#filetype#exit()',
-\  'type':   'filetype',
+\  'type':   'line',
 \  'sort':   0,
 \}
 
